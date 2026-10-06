@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Catering{% endblock %}
+{% block content %}
+<div class="page-title"><div><p class="eyebrow">CATERING</p><h1>Find a caterer</h1><p>Compare simple catering profiles before selecting one for an event.</p></div></div>
+<div class="cards three">{% for c in caterers %}<div class="card"><span class="tag">{{ c.specialty }}</span><h3>{{ c.name }}</h3><p>📞 {{ c.phone }}</p><p>⭐ {{ c.rating }} rating</p><h2>₹{{ c.price_per_person|int }}<small> / person</small></h2><button class="btn ghost">Select for event</button></div>{% endfor %}</div>
+{% endblock %}

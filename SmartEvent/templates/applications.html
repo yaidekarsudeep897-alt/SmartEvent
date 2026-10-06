@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Worker Applications{% endblock %}
+{% block content %}
+<div class="page-title"><div><p class="eyebrow">WORKFORCE</p><h1>Worker applications</h1><p>Review applications and assign suitable people to your event jobs.</p></div></div>
+<div class="table-wrap card"><table><tr><th>Worker</th><th>Event</th><th>Job</th><th>Pay</th><th>Status</th><th>Action</th></tr>
+{% for r in rows %}<tr><td><b>{{ r.worker_name }}</b><br><small>{{ r.email }}</small></td><td>{{ r.event_name }}</td><td>{{ r.title }}</td><td>₹{{ r.pay|int }}</td><td><span class="tag">{{ r.status }}</span></td><td>{% if r.status == 'Applied' %}<div class="inline"><form method="post" action="{{ url_for('update_application',application_id=r.id,action='accept') }}"><button class="btn small">Accept</button></form><form method="post" action="{{ url_for('update_application',application_id=r.id,action='reject') }}"><button class="btn small danger">Reject</button></form></div>{% endif %}</td></tr>{% else %}<tr><td colspan="6">No applications found.</td></tr>{% endfor %}</table></div>
+{% endblock %}

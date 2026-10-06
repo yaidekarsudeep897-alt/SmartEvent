@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Register | SmartEvent{% endblock %}
+{% block content %}
+<div class="auth">
+  <div class="auth-copy"><p class="eyebrow">GET STARTED</p><h1>Create your account</h1><p>Choose the role that matches how you will use SmartEvent.</p></div>
+  <form class="form card" method="post">
+    <div class="grid2">
+      <label>Full name<input name="name" required></label>
+      <label>Phone<input name="phone"></label>
+    </div>
+    <label>Email<input type="email" name="email" required></label>
+    <label>Password<input type="password" name="password" minlength="6" required></label>
+    <label>Location<input name="location" placeholder="Mangalore"></label>
+    <label>Account type
+      <select name="role" id="role" onchange="toggleWorker()">
+        <option value="worker">Worker</option><option value="owner">Event Owner</option><option value="guest">Guest</option>
+      </select>
+    </label>
+    <div id="workerFields">
+      <label>Skills<input name="skills" placeholder="Catering, Serving, Decoration"></label>
+      <label>Experience<input name="experience" placeholder="2 years"></label>
+      <label>Availability<input name="availability" placeholder="Saturday & Sunday, 5 PM - 11 PM"></label>
+      <label>Expected payment (₹)<input type="number" name="expected_pay" min="0"></label>
+    </div>
+    <button class="btn" type="submit">Create account</button>
+  </form>
+</div>
+<script>
+function toggleWorker(){document.getElementById('workerFields').style.display=document.getElementById('role').value==='worker'?'block':'none'}
+toggleWorker();
+</script>
+{% endblock %}

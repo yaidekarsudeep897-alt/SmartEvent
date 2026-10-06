@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Owner Dashboard{% endblock %}
+{% block content %}
+<div class="page-title"><div><p class="eyebrow">EVENT OWNER</p><h1>My events</h1><p>Create events, plan catering and request workers.</p></div><a class="btn" href="{{ url_for('new_event') }}">+ Create event</a></div>
+<div class="stats"><div><b>{{ events|length }}</b><span>My events</span></div><div><b>—</b><span>Workers assigned</span></div><div><b>—</b><span>Guests</span></div><div><b>—</b><span>Budget used</span></div></div>
+<div class="event-grid">{% for e in events %}<a class="event-card card" href="{{ url_for('event_detail',event_id=e.id) }}"><span class="tag">{{ e.event_type }}</span><h3>{{ e.name }}</h3><p>📅 {{ e.event_date }} · {{ e.event_time }}</p><p>📍 {{ e.venue }}</p><div class="event-bottom"><span>{{ e.guests }} guests</span><b>₹{{ e.budget|int }}</b></div></a>{% else %}<div class="empty card">No events yet. Create your first event.</div>{% endfor %}</div>
+{% endblock %}

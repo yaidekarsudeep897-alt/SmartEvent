@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}SmartEvent | Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">EVENTS • CATERING • WORKFORCE</p>
+    <h1>Plan the event.<br><span>Find the people.</span></h1>
+    <p class="lead">A practical platform connecting event owners, part-time workers, caterers and guests in one place.</p>
+    <div class="actions">
+      <a class="btn" href="{{ url_for('register') }}">Create an account</a>
+      <a class="btn ghost" href="{{ url_for('login') }}">Sign in</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="mini-title">Today's overview</div>
+    <div class="metric"><b>24</b><span>Active jobs</span></div>
+    <div class="metric"><b>86</b><span>Events managed</span></div>
+    <div class="metric"><b>425</b><span>Registered workers</span></div>
+  </div>
+</section>
+<section class="section">
+  <div class="section-head"><div><p class="eyebrow">ONE SYSTEM</p><h2>Everything connected</h2></div></div>
+  <div class="cards four">
+    <div class="card"><div class="icon">👷</div><h3>Workers</h3><p>Profiles, skills, availability, jobs, attendance and earnings.</p></div>
+    <div class="card"><div class="icon">🎉</div><h3>Event Owners</h3><p>Create events, choose catering and request the right workers.</p></div>
+    <div class="card"><div class="icon">🍽️</div><h3>Catering</h3><p>Manage caterers, menus, guest counts and estimated costs.</p></div>
+    <div class="card"><div class="icon">👤</div><h3>Guests</h3><p>Invitations, RSVP, seating and event location information.</p></div>
+  </div>
+</section>
+{% endblock %}
